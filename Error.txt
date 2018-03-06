@@ -1,0 +1,63 @@
+Innovations-MacBook-Pro:~ Innovation$ oc expose svc/jup-app
+route "jup-app" exposed
+Innovations-MacBook-Pro:~ Innovation$ oc describe pods
+Name:		jup-app-1-fk6x9
+Namespace:	jup-pjt50
+Node:		ip-172-31-60-76.ec2.internal/172.31.60.76
+Start Time:	Tue, 06 Mar 2018 11:19:54 +0530
+Labels:		app=jup-app
+		deployment=jup-app-1
+		deploymentconfig=jup-app
+Annotations:	kubernetes.io/created-by={"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"jup-pjt50","name":"jup-app-1","uid":"ff3ceaf0-2101-11e8-84c7-122631632...
+		kubernetes.io/limit-ranger=LimitRanger plugin set: cpu, memory request for container jup-app; cpu, memory limit for container jup-app
+		openshift.io/deployment-config.latest-version=1
+		openshift.io/deployment-config.name=jup-app
+		openshift.io/deployment.name=jup-app-1
+		openshift.io/generated-by=OpenShiftNewApp
+		openshift.io/scc=restricted
+Status:		Running
+IP:		10.131.149.242
+Created By:	ReplicationController/jup-app-1
+Controlled By:	ReplicationController/jup-app-1
+Containers:
+  jup-app:
+    Container ID:	docker://97c4b91e0e7083751dbd75b9ef7ebf676350fc42d488d71655ea01f765bc4477
+    Image:		docker.io/anumohan/expe@sha256:bd3f0b3b1a13734f0626fd501883bcb580b9706ecb32121bf0528ce698fe25f1
+    Image ID:		docker-pullable://docker.io/anumohan/expe@sha256:bd3f0b3b1a13734f0626fd501883bcb580b9706ecb32121bf0528ce698fe25f1
+    Ports:		8080/TCP, 8888/TCP, 6006/TCP, 80/TCP
+    State:		Running
+      Started:		Tue, 06 Mar 2018 11:23:13 +0530
+    Ready:		True
+    Restart Count:	0
+    Limits:
+      cpu:	1
+      memory:	512Mi
+    Requests:
+      cpu:		50m
+      memory:		256Mi
+    Environment:	<none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-4tk27 (ro)
+Conditions:
+  Type		Status
+  Initialized 	True 
+  Ready 	True 
+  PodScheduled 	True 
+Volumes:
+  default-token-4tk27:
+    Type:	Secret (a volume populated by a Secret)
+    SecretName:	default-token-4tk27
+    Optional:	false
+QoS Class:	Burstable
+Node-Selectors:	type=compute
+Tolerations:	<none>
+Events:
+  FirstSeen	LastSeen	Count	From					SubObjectPath			Type		Reason			Message
+  ---------	--------	-----	----					-------------			--------	------			-------
+  20m		20m		1	default-scheduler							Normal		Scheduled		Successfully assigned jup-app-1-fk6x9 to ip-172-31-60-76.ec2.internal
+  20m		20m		1	kubelet, ip-172-31-60-76.ec2.internal					Normal		SuccessfulMountVolume	MountVolume.SetUp succeeded for volume "default-token-4tk27" 
+  19m		19m		1	kubelet, ip-172-31-60-76.ec2.internal	spec.containers{jup-app}	Normal		Pulling			pulling image "docker.io/anumohan/expe@sha256:bd3f0b3b1a13734f0626fd501883bcb580b9706ecb32121bf0528ce698fe25f1"
+  17m		17m		1	kubelet, ip-172-31-60-76.ec2.internal	spec.containers{jup-app}	Normal		Pulled			Successfully pulled image "docker.io/anumohan/expe@sha256:bd3f0b3b1a13734f0626fd501883bcb580b9706ecb32121bf0528ce698fe25f1"
+  16m		16m		1	kubelet, ip-172-31-60-76.ec2.internal	spec.containers{jup-app}	Normal		Created			Created container
+  16m		16m		1	kubelet, ip-172-31-60-76.ec2.internal	spec.containers{jup-app}	Normal		Started			Started container
+Innovations-MacBook-Pro:~ Innovation$ 
